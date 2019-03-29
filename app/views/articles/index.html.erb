@@ -1,0 +1,7 @@
+<!-- app/views/articles/index.html.erb -->
+<h1>論文タイトル</h1>
+<ul>
+  <% @articles.each do |article| %>
+    <li><%= link_to article.name, article %></li>
+  <% end %>
+</ul>
