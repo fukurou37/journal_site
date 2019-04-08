@@ -8,4 +8,11 @@ class ArticlesController < ApplicationController
     @articles = Article.all
   end  
 
+  def new
+    @articles = Article.new
+  end
+
+  def create
+    
+  end
 end
