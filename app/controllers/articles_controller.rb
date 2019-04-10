@@ -13,6 +13,21 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    
+    @articles = Article.new(articles_params)
+
+    # 上の行はインスタンスを作っただけ。saveメソッドで保存しないと、消える。
+    @articles.save
+
+    # saveの後にshow(商品詳細ページ)に飛ぶ設定をします。
+    # これを設定しないと、プログラムが行き場をなくしてエラーが起きます。
+    redirect_to @articles
+
+    # redirect_to "/items"
+    # だとindexページにリダイレクトする
   end
-end
+
+private
+  def article_params
+    params.require(:articles).permit(:name, :price, :seller, :description, :email, :image_url)
+  end
+end  
